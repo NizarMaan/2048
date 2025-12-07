@@ -47,6 +47,12 @@ jobs:
         uses: actions/download-artifact@v4
         with:
           name: .net-app
+          path: ./publish
+      
+      - name: List published files
+        run: |
+          echo "Contents of publish directory:"
+          dir ./publish /s /b | Select-Object -First 20
       
       - name: Login to Azure
         uses: azure/login@v2
@@ -61,5 +67,5 @@ jobs:
         with:
           app-name: 'NizarMaan'
           slot-name: 'Production'
-          package: .
+          package: ./publish
           

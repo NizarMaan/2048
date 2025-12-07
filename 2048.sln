@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 18
 VisualStudioVersion = 18.0.11222.15 d18.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "2048.Server", "2048-Server\2048.Server.csproj", "{06D1C1FA-7BBD-4FB1-A8B7-ED97FFE9DCEC}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "2048.Server", "2048.Server\2048.Server.csproj", "{06D1C1FA-7BBD-4FB1-A8B7-ED97FFE9DCEC}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "2048.Models", "2048.Models\2048.Models.csproj", "{019D5A21-3F44-4784-8F42-9F61E8605B22}"
 EndProject

@@ -49,11 +49,6 @@ jobs:
           name: .net-app
           path: ./publish
       
-      - name: List published files
-        run: |
-          echo "Contents of publish directory:"
-          dir ./publish /s /b | Select-Object -First 20
-      
       - name: Login to Azure
         uses: azure/login@v2
         with:

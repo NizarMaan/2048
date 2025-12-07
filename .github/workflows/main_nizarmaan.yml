@@ -24,10 +24,10 @@ jobs:
           dotnet-version: '10.x'
 
       - name: Build with dotnet
-        run: dotnet build 2048.sln --configuration Release
+        run: dotnet build --configuration Release
 
       - name: dotnet publish
-        run: dotnet publish 2048.Server/2048.Server.csproj -c Release -o "${{env.DOTNET_ROOT}}/myapp"
+        run: dotnet publish -c Release -o "${{env.DOTNET_ROOT}}/myapp"
 
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v4
@@ -47,17 +47,13 @@ jobs:
         uses: actions/download-artifact@v4
         with:
           name: .net-app
-          path: ./publish
-      
-      - name: ZIP publish folder
-        run: powershell Compress-Archive -Path ./publish/* -DestinationPath ./app.zip
       
       - name: Login to Azure
         uses: azure/login@v2
         with:
-          client-id: ${{ secrets.AZUREAPPSERVICE_CLIENTID_0F613EB37CE1499996818BAC64095789 }}
-          tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID_B92876537BAC448A92EC9105B1EC64D6 }}
-          subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_2834ADE81C864489B6B368ED7E04D1AF }}
+          client-id: ${{ secrets.AZUREAPPSERVICE_CLIENTID_117EDDF1B77D48519AE7E694F6A5BFF8 }}
+          tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID_0F533D80DB364F9989D9A193AA748497 }}
+          subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_AAF8AF16449E4E6082364D6146D1E784 }}
 
       - name: Deploy to Azure Web App
         id: deploy-to-webapp
@@ -65,6 +61,5 @@ jobs:
         with:
           app-name: 'NizarMaan'
           slot-name: 'Production'
-          package: ./app.zip
-          type: zip
+          package: .
           
